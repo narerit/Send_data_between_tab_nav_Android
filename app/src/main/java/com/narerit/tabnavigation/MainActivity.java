@@ -3,6 +3,7 @@ package com.narerit.tabnavigation;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = findViewById(R.id.tab_top);
         tabLayout.setupWithViewPager(mViewPager);
+        tabLayout.setTabTextColors(Color.parseColor("#ffffff"), Color.parseColor("#ffffff"));
         tabLayout.getTabAt(0).setText("Promotions");
         tabLayout.getTabAt(1).setText("Saved");
 
