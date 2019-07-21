@@ -11,12 +11,14 @@ public class Promotions implements Parcelable {
     private String brand_image;
     private String offer;
     private String point;
+    private String name;
 
-    public Promotions(String promotion_image, String brand_image, String offer, String point) {
+    public Promotions(String promotion_image, String brand_image, String offer, String point, String name) {
         this.promotion_image = promotion_image;
         this.brand_image = brand_image;
         this.offer = offer;
         this.point = point;
+        this.name = name;
     }
     public Promotions(){}
 
@@ -25,6 +27,7 @@ public class Promotions implements Parcelable {
         brand_image = in.readString();
         offer = in.readString();
         point = in.readString();
+        name = in.readString();
     }
 
     public static final Creator<Promotions> CREATOR = new Creator<Promotions>() {
@@ -70,6 +73,13 @@ public class Promotions implements Parcelable {
     public void setPoint(String point) {
         this.point = point;
     }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     @Override
     public int describeContents() {
@@ -82,5 +92,6 @@ public class Promotions implements Parcelable {
         parcel.writeString(brand_image);
         parcel.writeString(offer);
         parcel.writeString(point);
+        parcel.writeString(name);
     }
 }

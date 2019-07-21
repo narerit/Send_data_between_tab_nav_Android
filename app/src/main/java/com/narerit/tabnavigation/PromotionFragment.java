@@ -1,6 +1,7 @@
 package com.narerit.tabnavigation;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,15 +12,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.like.LikeButton;
+import com.like.OnLikeListener;
 import com.narerit.tabnavigation.models.Promotions;
 import com.narerit.tabnavigation.utils.PromotionInfos;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class PromotionFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
@@ -77,4 +83,6 @@ public class PromotionFragment extends Fragment implements SwipeRefreshLayout.On
         mMainRecyclerViewAdapter.notifyDataSetChanged();
         mSwipeRefreshLayout.setRefreshing(false);
     }
+
+
 }
