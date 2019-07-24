@@ -51,6 +51,14 @@ public class PromotionFragment extends Fragment implements SwipeRefreshLayout.On
         initPromotions();
         return view;
     }
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser && mMainRecyclerViewAdapter != null){
+            initPromotions();
+            mMainRecyclerViewAdapter.notifyDataSetChanged();
+        }
+    }
 
     private void initPromotions() {
         PromotionInfos promotionInfos = new PromotionInfos();

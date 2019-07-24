@@ -44,6 +44,15 @@ public class SavedFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         return view;
     }
 
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser && mMainRecyclerViewAdapter != null){
+            getSavedPromotions();
+            mMainRecyclerViewAdapter.notifyDataSetChanged();
+        }
+    }
+
     private void getSavedPromotions() {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("promotions", Context.MODE_PRIVATE);
         Set<String> savedPromotions = sharedPreferences.getStringSet("saved_promotions",new HashSet<String>());

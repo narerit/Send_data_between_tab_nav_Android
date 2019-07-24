@@ -62,6 +62,7 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
             public void liked(LikeButton likeButton) {
                 SharedPreferences mSharedPreferences = mContext.getSharedPreferences(PROMOTIONS, Context.MODE_PRIVATE);
                 SharedPreferences.Editor mEditor = mSharedPreferences.edit();
+                mEditor.clear();
                 Set<String> savedPromotions = mSharedPreferences.getStringSet(SAVED_PROMOTIONS, new HashSet<String>());
                 savedPromotions.add(mPromotions.get(position).getName());
                 mEditor.putStringSet(SAVED_PROMOTIONS,savedPromotions);
@@ -72,6 +73,7 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
             public void unLiked(LikeButton likeButton) {
                 SharedPreferences mSharedPreferences = mContext.getSharedPreferences(PROMOTIONS, Context.MODE_PRIVATE);
                 SharedPreferences.Editor mEditor = mSharedPreferences.edit();
+                mEditor.clear();
                 Set<String> savedPromotions = mSharedPreferences.getStringSet(SAVED_PROMOTIONS, new HashSet<String>());
                 savedPromotions.remove(mPromotions.get(position).getName());
                 mEditor.remove(SAVED_PROMOTIONS);
